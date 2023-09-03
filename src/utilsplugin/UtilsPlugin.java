@@ -13,6 +13,6 @@ public class UtilsPlugin extends Plugin {
   }
   @Override
   public void registerClientCommands(CommandHandler handler){
-    playercommands.load(hanlder);
+    playercommands.load(handler);
   }
 }
