@@ -6,7 +6,7 @@ import mindustry.*;
 import mindustry.core.*;
 import mindustry.gen.*;
 import mindustry.game.*;
-import mindustry.EventType.*;
+import mindustry.game.EventType.*;
 
 public class event {
   public static void load() {
