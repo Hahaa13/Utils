@@ -8,6 +8,6 @@ import mindustry.gen.*;
 
 public class player {
   public static void load(CommandHandler handler) {
-    handler.<Player>register("discord", (args, player) -> Call.openURI(player.con, "https://discord.gg/Dxk9PxuDq4"));
+    handler.<Player>register("discord", "Discord server link", (args, player) -> Call.openURI(player.con, "https://discord.gg/Dxk9PxuDq4"));
   }
 }
