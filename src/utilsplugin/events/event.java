@@ -15,7 +15,7 @@ public class event {
     Events.on(PlayerJoin.class, e-> {
       Player p = e.player;
       if (p.admin) {
-        p.name = "[red][A]" + p.name
+        p.name = "[red][A]" + p.name;
       }
     });
   }
