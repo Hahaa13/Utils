@@ -7,7 +7,7 @@ import mindustry.game.*;
 import mindustry.gen.*;
 
 public class player {
-  public static void load() {
-    register("discord", (args, player) -> Call.openURI(player.con, "https://discord.gg/Dxk9PxuDq4"));
+  public static void load(CommandHandler handler) {
+    handler.<Player>register("discord", (args, player) -> Call.openURI(player.con, "https://discord.gg/Dxk9PxuDq4"));
   }
 }
