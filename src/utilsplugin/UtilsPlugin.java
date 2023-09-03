@@ -5,7 +5,7 @@ import mindustry.*;
 import mindustry.mod.*;
 
 public class UtilsPlugin extends Plugin {
-  @override
+  @Override
   public void init() {
     event.load();
   }
