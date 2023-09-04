@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 
 public class config {
   public static void add(String key, String value) {
-    JSONObject json = new JSONObject();
-    json.put(key, value);
+    JSONObject config = new JSONObject();
+    config.put(key, value);
   }
 }
