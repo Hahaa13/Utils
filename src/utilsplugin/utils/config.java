@@ -17,7 +17,4 @@ public class config {
       e.printStackTrace();
     }
   }
-  public static void get(String key) {
-    String sus = "sus";
-  }
 }
