@@ -14,7 +14,7 @@ public class config {
       file.write(json.toJSONString());
       file.close();
     } catch (IOException e) {
-      Log.error(e.toString());
+      e.printStackTrace()
     }
   }
   public static String get(String key) {
