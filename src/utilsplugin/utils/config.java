@@ -10,8 +10,12 @@ public class config {
   public static void add(String key, String value) {
     JSONObject json = new JSONObject();
     json.put(key, value);
-    FileWriter file = new FileWriter("config.json");
-    file.write(json.toJSONString());
-    file.close();
+    try {
+      FileWriter file = new FileWriter("config.json");
+      file.write(json.toJSONString());
+      file.close();
+    } catch (Exception e) {
+      Log.error(e);
+    }
   }
 }
