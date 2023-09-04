@@ -10,7 +10,7 @@ public class config {
   public static void add(String key, String value) {
     JSONObject json = new JSONObject();
     json.put(key, value);
-    FileWriter file = new FileWriter("config.json")
+    FileWriter file = new FileWriter("config.json");
     file.write(json.toJSONString());
     file.close();
   }
