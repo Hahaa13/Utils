@@ -18,5 +18,6 @@ public class config {
     }
   }
   public static void get(String key) {
+    String sus = "sus";
   }
 }
