@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.json.simple.JSONObject;
 
 public class config {
-  public static String add(String key, String value) {
+  public static void add(String key, String value) {
     JSONObject json = new JSONObject();
     json.put(key, value);
     try (FileWriter file = new FileWriter("config.json")) {
@@ -17,6 +17,6 @@ public class config {
       e.printStackTrace();
     }
   }
-  public static String get(String key) {
+  public static void get(String key) {
   }
 }
