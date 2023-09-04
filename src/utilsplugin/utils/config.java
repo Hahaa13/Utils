@@ -14,8 +14,8 @@ public class config {
       FileWriter file = new FileWriter("config.json");
       file.write(json.toJSONString());
       file.close();
-    } catch (Exception e) {
-      Log.error(e);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 }
