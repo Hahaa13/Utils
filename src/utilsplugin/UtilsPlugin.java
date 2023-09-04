@@ -12,7 +12,7 @@ public class UtilsPlugin extends Plugin {
   public void init() {
     event.load();
     config.add("Token", "token");
-    config.add("SurvivalMode", "true")
+    config.add("SurvivalMode", "true");
   }
   @Override
   public void registerClientCommands(CommandHandler handler){
