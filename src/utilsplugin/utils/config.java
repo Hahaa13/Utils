@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.json.simple.JSONObject;
 
 public class config {
+  @SuppressWarnings("unchecked")
   public static void add(String key, String value) {
     JSONObject json = new JSONObject();
     json.put(key, value);
