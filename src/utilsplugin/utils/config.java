@@ -11,7 +11,7 @@ public class config {
     JSONObject json = new JSONObject();
     json.put(key, value);
     try (FileWriter file = new FileWriter("config.json")) {
-      file.write(json.toString(4));
+      file.write(json.toJSONString());
       file.close();
     } catch (IOException e) {
       Log.error(e);
