@@ -11,7 +11,8 @@ public class UtilsPlugin extends Plugin {
   @Override
   public void init() {
     event.load();
-    config.add("token", "token");
+    config.add("Token", "token");
+    config.add("SurvivalMode", "true")
   }
   @Override
   public void registerClientCommands(CommandHandler handler){
