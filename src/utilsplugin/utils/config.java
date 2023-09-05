@@ -13,7 +13,7 @@ public class config {
     File dir = new File("/config/mods/UtilsPlugin");
     if (!dir.exists()) dir.mkdirs();
     try {
-      FileReader file = FileReader("/config/mod/UtilsPlugin/config.json");
+      FileReader file = new FileReader("/config/mod/UtilsPlugin/config.json");
       json = new JSONObject(file);
     } catch (IOException e) {
     }
