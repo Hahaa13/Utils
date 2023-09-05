@@ -10,11 +10,10 @@ import org.json.JSONObject;
 public class config {
   public static void add(String key, String value) {
     JSONObject json = new JSONObject();
-    File dir = new File("config/mods/UtilsPlugin");
-    File file = new File(dir, "config.json");
-    if (!dir.exists()) {
-      dir.mkdirs();
-      Log.info("Create Folder UtilsPlugin");
+    File file = new File("config/mods/UtilsPlugin/config.json");
+    if (!file.exists()) {
+      file.mkdirs();
+      Log.info("Create File UtilsPlugin/config.json");
     }
     try {
       FileReader fr = new FileReader(file);
