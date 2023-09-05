@@ -10,9 +10,11 @@ import mindustry.mod.*;
 public class UtilsPlugin extends Plugin {
   @Override
   public void init() {
+    Log.info("Loading UtilsPlugin");
+    //load content
     event.load();
-    config.add("Token", "token");
-    config.add("SurvivalMode", "true");
+    config.load("Token", "token");
+    Log.info("Loaded UtilsPlugin");
   }
   @Override
   public void registerClientCommands(CommandHandler handler){
