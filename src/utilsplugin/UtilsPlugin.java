@@ -13,7 +13,7 @@ public class UtilsPlugin extends Plugin {
     Log.info("Loading UtilsPlugin");
     //load content
     event.load();
-    config.load("Token", "token");
+    config.load();
     Log.info("Loaded UtilsPlugin");
   }
   @Override
