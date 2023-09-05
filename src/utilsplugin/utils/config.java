@@ -11,7 +11,10 @@ public class config {
   public static void add(String key, String value) {
     JSONObject json = new JSONObject();
     File dir = new File("/config/mods/UtilsPlugin");
-    if (!dir.exists()) dir.mkdirs();
+    if (!dir.exists()) {
+      dir.mkdirs();
+      Log.info("Create Folder UtilsPlugin");
+    }
     try {
       FileReader file = new FileReader("/config/mod/UtilsPlugin/config.json");
       json = new JSONObject(file);
@@ -23,7 +26,7 @@ public class config {
       file.write(json.toString());
       file.close();
     } catch (IOException e) {
-      Log.err("UtilsPlugin cannot write file config");
+      Log.err("UtilsPlugin cannot load config file");
     }
   }
   public static void get(String key) {
