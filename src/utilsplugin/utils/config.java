@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class config {
   public static void add(String key, String value) {
     JSONObject json = new JSONObject();
-    File dir = new File("/config/mods/UtilsPlugin");
+    File dir = new File("\\config\\mods\\UtilsPlugin");
     if (!dir.exists()) {
       dir.mkdirs();
       Log.info("Create Folder UtilsPlugin");
