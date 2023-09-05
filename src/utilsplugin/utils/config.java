@@ -8,19 +8,18 @@ import java.io.IOException;
 import org.json.JSONObject;
 
 public class config {
-  private static String fileconfig = "config/mods/UtilsPlugin/config.json";
   public static void add(String key, String value) {
     JSONObject json = new JSONObject();
     File dir = new File("/config/mods/UtilsPlugin");
     if (!dir.exists()) dir.mkdirs();
     try {
-      FileReader file = FileReader(fileconfig);
+      FileReader file = FileReader("config/mod/UtilsPlugin/config.json");
       json = new JSONObject(file);
     } catch (IOException e) {
     }
     json.put(key, value);
     try {
-      FileWriter file = new FileWriter(fileconfig);
+      FileWriter file = new FileWriter("config/mod/UtilsPlugin/config.json");
       file.write(json.toString());
       file.close();
     } catch (IOException e) {
