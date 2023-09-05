@@ -8,7 +8,7 @@ import java.io.IOException;
 import org.json.JSONObject;
 
 public class config {
-  public static void add(String key, String value) {
+  public static void load() {
     JSONObject json = new JSONObject();
     File file = new File("config/mods/UtilsPlugin/config.json");
     if (!file.exists()) {
@@ -19,12 +19,8 @@ public class config {
       }
       Log.info("Create File UtilsPlugin/config.json");
     }
-    try {
-      FileReader fr = new FileReader(file);
-      json = new JSONObject(fr);
-    } catch (IOException e) {
-    }
-    json.put(key, value);
+    json.put("discordbot_token", "token");
+    json.put("discordbot_channelid", "id");
     try {
       FileWriter fw = new FileWriter(file);
       fw.write(json.toString());
