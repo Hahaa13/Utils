@@ -26,6 +26,7 @@ public class config {
       file.write(json.toString());
       file.close();
     } catch (IOException e) {
+      e.printStackTrace()
       Log.err("UtilsPlugin cannot load config file");
     }
   }
