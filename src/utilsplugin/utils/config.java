@@ -24,7 +24,7 @@ public class config {
       file.write(json.toString());
       file.close();
     } catch (IOException e) {
-      Log.error("UtilsPlugin cannot write file config");
+      Log.err("UtilsPlugin cannot write file config");
     }
   }
   public static void get(String key) {
