@@ -13,7 +13,10 @@ public class config {
     File file = new File("config/mods/UtilsPlugin/config.json");
     if (!file.exists()) {
       file.getParentFile().mkdirs();
-      file.createNewFile();
+      try {
+        file.createNewFile();
+      } catch (IOException e) {
+      }
       Log.info("Create File UtilsPlugin/config.json");
     }
     try {
