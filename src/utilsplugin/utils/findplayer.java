@@ -5,7 +5,7 @@ import arc.util.Strings;
 import mindustry.gen.Groups;
 import mindustry.gen.Player;
 
-public class Players {
+public class findplayer {
     public static @Nullable Player getPlayer(String name) {
         return Groups.player.find(p -> Strings.stripColors(p.name).equalsIgnoreCase(name));
     }
