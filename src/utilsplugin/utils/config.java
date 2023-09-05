@@ -12,7 +12,8 @@ public class config {
     JSONObject json = new JSONObject();
     File file = new File("config/mods/UtilsPlugin/config.json");
     if (!file.exists()) {
-      file.mkdirs();
+      file.getParentFile().mkdirs();
+      file.createNewFile();
       Log.info("Create File UtilsPlugin/config.json");
     }
     try {
