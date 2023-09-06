@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import org.json.JSONObject;
-import org.json.Tokener;
+import org.json.JSONTokener;
 
 public class config {
   public static void load() {
@@ -32,7 +32,7 @@ public class config {
   }
   public static String get(String key) {
     FileReader file = new FileReader("config/mods/UtilsPlugin/config.json");
-    JSONObject json = new Tokener(file);
+    JSONObject json = new JSONTokener(file);
     file.close();
     String value = json.getString(key);
     return value;
