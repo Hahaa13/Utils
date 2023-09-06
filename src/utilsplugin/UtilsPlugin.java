@@ -12,8 +12,8 @@ public class UtilsPlugin extends Plugin {
   public void init() {
     Log.info("Loading UtilsPlugin");
     //load content
-    event.load();
     config.load();
+    event.load();
     Log.info("Loaded UtilsPlugin");
   }
   @Override
