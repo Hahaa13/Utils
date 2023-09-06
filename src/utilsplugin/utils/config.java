@@ -15,8 +15,7 @@ public class config {
       file.getParentFile().mkdirs();
       try {
         file.createNewFile();
-      } catch (IOException e) {
-      }
+      } catch (IOException e) {}
       Log.info("Create File UtilsPlugin/config.json");
     }
     json.put("discordbot_token", "token");
@@ -35,10 +34,10 @@ public class config {
       JSONObject json = new JSONObject(file);
       file.close();
       String value = json.getString(key);
+      return value;
     } catch (IOException e) {
-      String value = "null";
       Log.info("UtilsPlugin cannot get config " + key);
+      return null;
     }
-    return value;
   }
 }
