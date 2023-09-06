@@ -35,7 +35,7 @@ public class config {
       JSONObject json = new JSONObject(file);
       file.close();
       String value = json.getString(key);
-    } catch (IOExcpetion e) {
+    } catch (IOException e) {
       String value = "null";
       Log.info("UtilsPlugin cannot get config " + key);
     }
