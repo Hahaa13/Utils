@@ -15,7 +15,7 @@ public class UtilsPlugin extends Plugin {
     config.load();
     event.load();
     Log.info("Loaded UtilsPlugin");
-    Log.info(config.get("discordbot_token");
+    Log.info(config.get("discordbot_token"));
   }
   @Override
   public void registerClientCommands(CommandHandler handler){
