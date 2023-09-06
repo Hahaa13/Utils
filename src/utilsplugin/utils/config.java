@@ -30,10 +30,15 @@ public class config {
     }
   }
   public static String get(String key) {
-    FileReader file = new FileReader("config/mods/UtilsPlugin/config.json");
-    JSONObject json = new JSONObject(file);
-    file.close();
-    String value = json.getString(key);
+    try {
+      FileReader file = new FileReader("config/mods/UtilsPlugin/config.json");
+      JSONObject json = new JSONObject(file);
+      file.close();
+      String value = json.getString(key);
+    } catch (IOExcpetion e) {
+      String value = "null";
+      Log.info("UtilsPlugin cannot get config " + key);
+    }
     return value;
   }
 }
