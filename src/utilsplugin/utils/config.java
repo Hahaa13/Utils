@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import org.json.JSONObject;
+import org.json.Tokener;
 
 public class config {
   public static void load() {
@@ -29,6 +30,11 @@ public class config {
       Log.err("UtilsPlugin cannot load config file");
     }
   }
-  public static void get(String key) {
+  public static String get(String key) {
+    FileReader file = new FileReader("config/mods/UtilsPlugin/config.json");
+    JSONObject json = new Tokener(file);
+    file.close();
+    String value = json.getString(key);
+    return value;
   }
 }
