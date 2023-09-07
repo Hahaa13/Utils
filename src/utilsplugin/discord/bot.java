@@ -28,8 +28,11 @@ public class bot {
       if(message.getChannelId().equals(channel.getId())) {
         String content = message.getContent();
         String user = member.getDisplayName();
-        Call.sendMessage("[blue][white]] " + user + ": " + content);
+        Call.sendMessage("[[blue][white]] " + user + ": " + content);
       }
     });
+  }
+  public static void send(String content) {
+    
   }
 }
