@@ -22,7 +22,7 @@ public class bot {
       if (member == null || member.isBot()) return;
 
       if(message.getChannelId() == Snowflake.of(config.get("discordbot_channelid"))) {
-        Optional<String> content = message.getContent();
+        String content = message.getContent();
         Optional<String> user = member.getNickname();
       }
     });
