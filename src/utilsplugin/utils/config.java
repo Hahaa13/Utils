@@ -16,17 +16,17 @@ public class config {
       file.getParentFile().mkdirs();
       try {
         file.createNewFile();
+        Log.info("Create File UtilsPlugin/config.json");
+        json.put("discordbot_token", "token");
+        json.put("discordbot_channelid", "id");
+        try {
+          FileWriter fw = new FileWriter(file);
+          fw.write(json.toString());
+          fw.close();
+        } catch (IOException e) {
+          Log.err("UtilsPlugin cannot load config file");
+        }
       } catch (IOException e) {}
-      Log.info("Create File UtilsPlugin/config.json");
-    }
-    json.put("discordbot_token", "token");
-    json.put("discordbot_channelid", "id");
-    try {
-      FileWriter fw = new FileWriter(file);
-      fw.write(json.toString());
-      fw.close();
-    } catch (IOException e) {
-      Log.err("UtilsPlugin cannot load config file");
     }
   }
   public static String get(String key) {
