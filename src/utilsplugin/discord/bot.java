@@ -5,6 +5,7 @@ import discord4j.core.*;
 import discord4j.gateway.intent.*;
 import discord4j.common.util.Snowflake;
 import discord4j.core.object.entity.Member;
+import discord4j.core.event.domain.message.*;
 
 public class bot {
   public static void load() {
