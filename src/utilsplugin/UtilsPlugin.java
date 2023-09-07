@@ -14,7 +14,7 @@ public class UtilsPlugin extends Plugin {
     Log.info("Loading UtilsPlugin");
     //load content
     config.load();
-    discord.load();
+    bot.load();
     event.load();
     Log.info("Loaded UtilsPlugin");
   }
