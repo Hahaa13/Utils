@@ -21,7 +21,7 @@ public class config {
         json.put("discordbot_channelid", "id");
         try {
           FileWriter fw = new FileWriter(file);
-          fw.write(json.toString());
+          fw.write(json.toString(4));
           fw.close();
         } catch (IOException e) {
           Log.err("UtilsPlugin cannot load config file");
