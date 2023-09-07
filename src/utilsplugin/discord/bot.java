@@ -1,5 +1,6 @@
 package utilsplugin.discord;
 
+import java.util.Optional;
 import utilsplugin.utils.config;
 import discord4j.core.*;
 import discord4j.gateway.intent.*;
@@ -21,8 +22,8 @@ public class bot {
       if (member == null || member.isBot()) return;
 
       if(message.getChannelId() == Snowflake.of(config.get("discordbot_channelid"))) {
-        String content = message.getContent().get();
-        String user = member.getNickname().get();
+        Optional<String> content = message.getContent();
+        Optional<String> user = member.getNickname();
       }
     });
   }
