@@ -36,6 +36,6 @@ public class bot {
   }
   public static void send(String content) {
     EmbedCreateSpec embed = EmbedCreateSpec.builder()
-      .title("hello";
+      .title("hello");
   }
 }
