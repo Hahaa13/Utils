@@ -39,6 +39,6 @@ public class bot {
       .color(color)
       .title(content)
       .build();
-    channel.createMessage(embed);
+    channel.createMessage(embed).subscribe();
   }
 }
