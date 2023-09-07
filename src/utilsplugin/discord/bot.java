@@ -2,6 +2,7 @@ package utilsplugin.discord;
 
 import java.util.Optional;
 import utilsplugin.utils.config;
+import mindustry.gen.Call;
 import discord4j.core.*;
 import discord4j.gateway.intent.*;
 import discord4j.common.util.Snowflake;
@@ -24,6 +25,8 @@ public class bot {
       if(message.getChannelId() == Snowflake.of(config.get("discordbot_channelid"))) {
         String content = message.getContent();
         Optional<String> user = member.getNickname();
+        String username = user.get();
+        Call.sendMessage(username + content);
       }
     });
   }
