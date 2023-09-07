@@ -34,9 +34,11 @@ public class bot {
       }
     });
   }
-  public static void send(String content) {
+  public static void send(String content, Color color) {
     EmbedCreateSpec embed = EmbedCreateSpec.builder()
-      .title("hello")
+      .color(color)
+      .title(content)
       .build();
+    channel.sendMessage(embed);
   }
 }
