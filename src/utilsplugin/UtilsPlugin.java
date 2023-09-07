@@ -1,5 +1,6 @@
 package utilsplugin;
 
+import utilsplugin.discord.*;
 import utilsplugin.events.*;
 import utilsplugin.commands.*;
 import utilsplugin.utils.config;
@@ -13,9 +14,9 @@ public class UtilsPlugin extends Plugin {
     Log.info("Loading UtilsPlugin");
     //load content
     config.load();
+    discord.load();
     event.load();
     Log.info("Loaded UtilsPlugin");
-    Log.info(config.get("discordbot_token"));
   }
   @Override
   public void registerClientCommands(CommandHandler handler){
