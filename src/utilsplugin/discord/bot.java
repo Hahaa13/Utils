@@ -24,9 +24,8 @@ public class bot {
 
       if(message.getChannelId() == Snowflake.of(config.get("discordbot_channelid"))) {
         String content = message.getContent();
-        Optional<String> user = member.getNickname();
-        String username = user.get();
-        Call.sendMessage(username + content);
+        String user = member.getNickname().get();
+        Call.sendMessage(user + content);
       }
     });
   }
