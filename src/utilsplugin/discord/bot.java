@@ -6,9 +6,11 @@ import mindustry.gen.Call;
 import discord4j.core.*;
 import discord4j.gateway.intent.*;
 import discord4j.common.util.Snowflake;
+import discord4j.rest.util.Color;
 import discord4j.core.object.entity.Member;
 import discord4j.core.event.domain.message.*;
 import discord4j.core.object.entity.channel.GuildMessageChannel;
+import discord4j.core.spec.EmbedCreateSpec;
 
 public class bot {
   public static GuildMessageChannel channel;
@@ -33,6 +35,7 @@ public class bot {
     });
   }
   public static void send(String content) {
-    
+    EmbedCreateSpec embed = EmbedCreateSpec.builder()
+      .title("hello";
   }
 }
