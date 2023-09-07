@@ -22,7 +22,7 @@ public class bot {
       var member = e.getMember().orElse(null);
       if (member == null || member.isBot()) return;
 
-      if(message.getChannelId() == Snowflake.of(config.get("discordbot_channelid"))) {
+      if(message.getChannelId().equals(config.get("discordbot_channelid"))) {
         String content = message.getContent();
         String user = member.getNickname().get();
         Call.sendMessage(user + content);
