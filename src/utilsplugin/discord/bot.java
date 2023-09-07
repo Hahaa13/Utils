@@ -10,7 +10,7 @@ import discord4j.rest.util.Color;
 import discord4j.core.object.entity.Member;
 import discord4j.core.event.domain.message.*;
 import discord4j.core.object.entity.channel.GuildMessageChannel;
-import discord4j.core.spec.EmbedCreateSpec;
+import discord4j.core.spec.legacy.LegacyEmbedCreateSpec;
 
 public class bot {
   public static GuildMessageChannel channel;
@@ -35,7 +35,7 @@ public class bot {
     });
   }
   public static void send(String content) {
-    EmbedCreateSpec embed = EmbedCreateSpec.builder()
+    LegacyEmbedCreateSpec embed = LegacyEmbedCreateSpec.builder()
       .title("hello");
   }
 }
