@@ -23,6 +23,6 @@ public class bot {
         String content = message.getContent();
         String user = member.getNickname();
       }
-    }
+    });
   }
 }
