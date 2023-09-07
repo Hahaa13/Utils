@@ -20,6 +20,7 @@ ext{
     mindustryVersion = 'v145'
     jabelVersion = "93fde537c7"
     jsonVersion = "20230618"
+    discordVersion = "3.3.0-RC1"
 }
 
 //java 8 backwards compatibility flag
@@ -33,6 +34,7 @@ dependencies{
     compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
     implementation "org.json:json:$jsonVersion"
+    implementation("com.discord4j:discord4j-core:$discordVersion")
     annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
 }
 
