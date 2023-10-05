@@ -23,19 +23,19 @@ public class event {
       Player p = e.player;
       String content = e.message;
       String message = p.name + ": " + content;
-      bot.send(message, Color.DARK_GRAY);
+      bot.send(message);
     });
     
     Events.on(PlayerJoin.class, e -> {
       Player p = e.player;
       String message = p.name + " đã vào máy chủ";
-      bot.send(message, Color.GREEN);
+      bot.sendEmbed(message, Color.GREEN);
     });
     
     Events.on(PlayerLeave.class, e -> {
       Player p = e.player;
       String message = p.name + " đã rời máy chủ";
-      bot.send(message, Color.RED);
+      bot.sendEmbed(message, Color.RED);
     });
   }
 }
