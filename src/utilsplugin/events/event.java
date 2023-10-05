@@ -12,13 +12,6 @@ import mindustry.game.EventType.*;
 
 public class event {
   public static void load() {
-    Events.on(PlayerJoin.class, e-> {
-      Player p = e.player;
-      if (p.admin) {
-        p.name = "[red][][white]" + p.name;
-      }
-    });
-    
     Events.on(PlayerChatEvent.class, e -> {
       Player p = e.player;
       String content = e.message;
@@ -28,6 +21,9 @@ public class event {
     
     Events.on(PlayerJoin.class, e -> {
       Player p = e.player;
+      if (p.admin) {
+        p.name = "[red][][white]" + p.name;
+      }
       String message = p.name + " đã vào máy chủ";
       bot.sendEmbed(message, Color.GREEN);
     });
