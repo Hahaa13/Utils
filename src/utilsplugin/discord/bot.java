@@ -16,7 +16,7 @@ import discord4j.core.spec.EmbedCreateSpec;
 
 public class bot {
   public static GuildMessageChannel channel;
-  public static void load() {
+  public void load() {
     GatewayDiscordClient gateway = DiscordClient.create(config.get("discordbot_token"))
                                                         .gateway()
                                                         .setEnabledIntents(IntentSet.of(Intent.GUILD_MEMBERS, Intent.GUILD_MESSAGES))
@@ -32,7 +32,7 @@ public class bot {
       if(message.getChannelId().equals(channel.getId())) {
         String content = message.getContent();
         if(content.startsWith("!map")) {
-          var map = new GameState.map();
+          var map = GameState.map;
         } else {
           String user = member.getDisplayName();
           Call.sendMessage("[blue][][white] " + user + ": " + content);
@@ -40,10 +40,10 @@ public class bot {
       }
     });
   }
-  public static void send(String content) {
+  public void send(String content) {
     channel.createMessage(content).subscribe();
   }
-  public static void sendEmbed(String content, Color color) {
+  public void sendEmbed(String content, Color color) {
     EmbedCreateSpec embed = EmbedCreateSpec.builder()
       .color(color)
       .title(content)
