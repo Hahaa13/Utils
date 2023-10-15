@@ -31,7 +31,7 @@ public class bot {
 
       if(message.getChannelId().equals(channel.getId())) {
         String content = message.getContent();
-        if(content.startsWith("!map") {
+        if(content.startsWith("!map")) {
           Map map = GameState.map();
         } else {
           String user = member.getDisplayName();
