@@ -1,6 +1,9 @@
 package utilsplugin.discord;
 
 import java.util.Optional;
+
+import javax.swing.text.GapContent;
+
 import utilsplugin.utils.config;
 import mindustry.gen.Call;
 import mindustry.core.GameState;
@@ -17,6 +20,7 @@ import discord4j.core.spec.EmbedCreateSpec;
 public class bot {
   public static GuildMessageChannel channel;
   public static void load() {
+    GameState gameState = new GameState();
     GatewayDiscordClient gateway = DiscordClient.create(config.get("discordbot_token"))
                                                         .gateway()
                                                         .setEnabledIntents(IntentSet.of(Intent.GUILD_MEMBERS, Intent.GUILD_MESSAGES))
@@ -30,8 +34,8 @@ public class bot {
       if (member == null || member.isBot()) return;
       if(message.getChannelId().equals(channel.getId())) {
         String content = message.getContent();
-        if(content.startsWith("!map")) {
-          var map = GameState.map;
+        if(content.startsWith("!status")) {
+          int tps = gameState.serverTps;
         } else {
           String user = member.getDisplayName();
           Call.sendMessage("[blue][][white] " + user + ": " + content);
