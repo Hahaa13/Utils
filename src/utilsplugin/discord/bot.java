@@ -3,6 +3,8 @@ package utilsplugin.discord;
 import java.util.Optional;
 import utilsplugin.utils.config;
 import mindustry.gen.Call;
+import mindustry.core.GameState;
+import mindustry.maps.Map;
 import discord4j.core.*;
 import discord4j.gateway.intent.*;
 import discord4j.common.util.Snowflake;
@@ -29,8 +31,12 @@ public class bot {
 
       if(message.getChannelId().equals(channel.getId())) {
         String content = message.getContent();
-        String user = member.getDisplayName();
-        Call.sendMessage("[blue][][white] " + user + ": " + content);
+        if(content.startsWith("!map") {
+          Map map = GameState.map();
+        } else {
+          String user = member.getDisplayName();
+          Call.sendMessage("[blue][][white] " + user + ": " + content);
+        }
       }
     });
   }
