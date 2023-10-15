@@ -16,7 +16,7 @@ import discord4j.core.spec.EmbedCreateSpec;
 
 public class bot {
   public static GuildMessageChannel channel;
-  public void load() {
+  public static void load() {
     GatewayDiscordClient gateway = DiscordClient.create(config.get("discordbot_token"))
                                                         .gateway()
                                                         .setEnabledIntents(IntentSet.of(Intent.GUILD_MEMBERS, Intent.GUILD_MESSAGES))
@@ -39,10 +39,10 @@ public class bot {
       }
     });
   }
-  public void send(String content) {
+  public static void send(String content) {
     channel.createMessage(content).subscribe();
   }
-  public void sendEmbed(String content, Color color) {
+  public static void sendEmbed(String content, Color color) {
     EmbedCreateSpec embed = EmbedCreateSpec.builder()
       .color(color)
       .title(content)
