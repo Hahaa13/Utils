@@ -32,7 +32,7 @@ public class bot {
       if(message.getChannelId().equals(channel.getId())) {
         String content = message.getContent();
         if(content.startsWith("!map")) {
-          map map = GameState.new map;
+          Call.sendMessage(GameState.map.name());
         } else {
           String user = member.getDisplayName();
           Call.sendMessage("[blue][][white] " + user + ": " + content);
