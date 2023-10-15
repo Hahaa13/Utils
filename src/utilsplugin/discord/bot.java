@@ -28,7 +28,6 @@ public class bot {
       if (message.getContent().isEmpty()) return;
       var member = e.getMember().orElse(null);
       if (member == null || member.isBot()) return;
-
       if(message.getChannelId().equals(channel.getId())) {
         String content = message.getContent();
         if(content.startsWith("!map")) {
