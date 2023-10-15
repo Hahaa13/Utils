@@ -36,6 +36,7 @@ public class bot {
         String content = message.getContent();
         if(content.startsWith("!status")) {
           int tps = gameState.serverTps;
+          String mapname = gameState.map.name();
         } else {
           String user = member.getDisplayName();
           Call.sendMessage("[blue][][white] " + user + ": " + content);
