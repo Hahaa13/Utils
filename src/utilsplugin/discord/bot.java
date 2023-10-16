@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.swing.text.GapContent;
 
+import arc.util.Log;
 import utilsplugin.utils.config;
 import mindustry.gen.Call;
 import mindustry.core.GameState;
@@ -38,11 +39,13 @@ public class bot {
         if(content.startsWith("!map")) {
           int tps = gameState.serverTps;
           String mapname = gameState.map.name();
+          String URL_MAP_PREVIEW = null;
           try {
-            String URL_MAP_PREVIEW = gameState.map.previewFile().file().toURI().toURL().toString();
-          } catch (MalformedURLException e) {
-            e.printStackTrace();
+            URL_MAP_PREVIEW = gameState.map.previewFile().file().toURI().toURL().toString();
+          } catch (MalformedURLException error) {
+            error.printStackTrace();
           }
+          Log.info(URL_MAP_PREVIEW);
           String m = "Tps: " + tps + "\nMap: " + mapname;
           bot.sendEmbedImage(m, Color.DEEP_SEA, URL_MAP_PREVIEW);
         } else {
