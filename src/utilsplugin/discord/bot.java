@@ -34,9 +34,12 @@ public class bot {
       if (member == null || member.isBot()) return;
       if(message.getChannelId().equals(channel.getId())) {
         String content = message.getContent();
-        if(content.startsWith("!status")) {
+        if(content.startsWith("!map")) {
           int tps = gameState.serverTps;
           String mapname = gameState.map.name();
+          String URL_MAP_PREVIEW = gameState.map.previewFile().file().toURI().toString();
+          String m = "Tps: " + tps + "\nMap: " + mapname;
+          bot.sendEmbedImage(m, Color.DEEP_SEA, URL_MAP_PREVIEW);
         } else {
           String user = member.getDisplayName();
           Call.sendMessage("[blue][][white] " + user + ": " + content);
@@ -54,4 +57,12 @@ public class bot {
       .build();
     channel.createMessage(embed).subscribe();
   }
+   public static void sendEmbedImage(String content, Color color, String URL_MAP_PREVIEW) {
+    EmbedCreateSpec embed = EmbedCreateSpec.builder()
+      .color(color)
+      .title(content)
+      .image(URL_MAP_PREVIEW)
+      .build();
+    channel.createMessage(embed).subscribe();
+   }
 }
