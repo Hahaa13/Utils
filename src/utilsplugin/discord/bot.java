@@ -38,10 +38,11 @@ public class bot {
         if(content.startsWith("!map")) {
           int tps = gameState.serverTps;
           String mapname = gameState.map.name();
+          String URL_MAP_PREVIEW = null;
           try {
-            String URL_MAP_PREVIEW = gameState.map.previewFile().file().toURI().toURL().toString();
-          } catch (MalformedURLException e) {
-            e.printStackTrace();
+            URL_MAP_PREVIEW = gameState.map.previewFile().file().toURI().toURL().toString();
+          } catch (MalformedURLException error) {
+            error.printStackTrace();
           }
           String m = "Tps: " + tps + "\nMap: " + mapname;
           bot.sendEmbedImage(m, Color.DEEP_SEA, URL_MAP_PREVIEW);
