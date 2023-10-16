@@ -1,5 +1,6 @@
 package utilsplugin.discord;
 
+import java.net.MalformedURLException;
 import java.util.Optional;
 
 import javax.swing.text.GapContent;
@@ -37,7 +38,11 @@ public class bot {
         if(content.startsWith("!map")) {
           int tps = gameState.serverTps;
           String mapname = gameState.map.name();
-          String URL_MAP_PREVIEW = gameState.map.previewFile().file().toURI().toString();
+          try {
+            String URL_MAP_PREVIEW = gameState.map.previewFile().file().toURI().toURL().toString();
+          } catch (MalformedURLException e) {
+            e.printStackTrace();
+          }
           String m = "Tps: " + tps + "\nMap: " + mapname;
           bot.sendEmbedImage(m, Color.DEEP_SEA, URL_MAP_PREVIEW);
         } else {
