@@ -15,7 +15,7 @@ public class event {
     Events.on(PlayerChatEvent.class, e -> {
       Player p = e.player;
       String content = e.message;
-      String message = p.name + ": " + content;
+      String message = "```" + p.name + ": " + content + "```";
       bot.send(message);
     });
     
