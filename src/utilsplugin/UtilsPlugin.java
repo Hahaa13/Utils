@@ -5,7 +5,6 @@ import utilsplugin.events.*;
 import utilsplugin.commands.*;
 import utilsplugin.utils.config;
 import arc.util.*;
-import mindustry.*;
 import mindustry.mod.*;
 
 public class UtilsPlugin extends Plugin {

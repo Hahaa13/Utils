@@ -3,11 +3,7 @@ package utilsplugin.events;
 import utilsplugin.discord.bot;
 import discord4j.rest.util.Color;
 import arc.*;
-import arc.util.*;
-import mindustry.*;
-import mindustry.core.*;
 import mindustry.gen.*;
-import mindustry.game.*;
 import mindustry.game.EventType.*;
 
 public class event {

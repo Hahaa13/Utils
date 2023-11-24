@@ -1,10 +1,6 @@
 package utilsplugin.commands;
 
-import arc.*;
 import arc.util.*;
-import mindustry.*;
-import mindustry.core.*;
-import mindustry.game.*;
 import mindustry.gen.*;
 
 public class playercommands {
