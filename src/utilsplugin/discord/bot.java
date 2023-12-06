@@ -16,6 +16,7 @@ import discord4j.rest.util.Color;
 import mindustry.Vars;
 import mindustry.gen.Call;
 import mindustry.maps.Map;
+import java.io.File;
 import utilsplugin.utils.config;
 
 public class bot {
@@ -39,6 +40,11 @@ public class bot {
           try {
             Cloudinary cloudinary = new Cloudinary(config.get("CLOUDINARY_URL"));
             cloudinary.config.secure = true;
+            File mapfile = map.previewFile().file();
+            if (!mapfile.exists()) {
+              mapfile.mkdirs();
+              mapfile.createNewFile();
+            }
             var upload = cloudinary.uploader().upload(map.previewFile().file(), ObjectUtils.emptyMap());
             Object url = upload.get("url");
             Log.info(url);
