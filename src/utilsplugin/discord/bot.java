@@ -42,7 +42,6 @@ public class bot {
             cloudinary.config.secure = true;
             File mapfile = map.previewFile().file();
             if (!mapfile.exists()) {
-              mapfile.mkdirs();
               mapfile.createNewFile();
             }
             var upload = cloudinary.uploader().upload(map.previewFile().file(), ObjectUtils.emptyMap());
