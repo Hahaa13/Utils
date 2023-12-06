@@ -21,6 +21,7 @@ ext{
     jabelVersion = "93fde537c7"
     jsonVersion = "20230618"
     discordVersion = "3.3.0-M2"
+    cloudinaryVersion = "1.32.2"
 }
 
 //java 8 backwards compatibility flag
@@ -34,7 +35,9 @@ dependencies{
     compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
     implementation "org.json:json:$jsonVersion"
-    implementation("com.discord4j:discord4j-core:$discordVersion")
+    implementation "com.cloudinary:cloudinary-http44:$cloudinaryVersion"
+    implementation "com.cloudinary:cloudinary-taglib:$cloudinaryVersion"
+    implementation "com.discord4j:discord4j-core:$discordVersion"
     annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
 }
 

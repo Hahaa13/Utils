@@ -1,5 +1,8 @@
 package utilsplugin.discord;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+
 import arc.util.Log;
 import discord4j.common.util.Snowflake;
 import discord4j.core.DiscordClient;
@@ -34,7 +37,12 @@ public class bot {
         if (content.startsWith("!maps")){
           Map map = Vars.state.map;
           try {
-            sendEmbedImage("Map: " + map.plainName() + "\nAuthor: " + map.author(), Color.DARK_GRAY, map.previewFile().file().toURI().toURL().toString());
+            Cloudinary cloudinary = new Cloudinary(config.get("CLOUDINARY_URL"));
+            cloudinary.config.secure = true;
+            var upload = cloudinary.uploader().upload(map.previewFile().file(), ObjectUtils.emptyMap());
+            Object url = upload.get("url");
+            Log.info(url);
+            sendEmbedImage("Map: " + map.plainName() + "\nAuthor: " + map.author(), Color.DARK_GRAY, url.toString());
           } catch (Exception er) {
             Log.err(er);
           }
