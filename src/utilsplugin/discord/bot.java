@@ -17,6 +17,9 @@ import mindustry.Vars;
 import mindustry.gen.Call;
 import mindustry.maps.Map;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import utilsplugin.utils.config;
 
 public class bot {
@@ -43,6 +46,8 @@ public class bot {
             File mapfile = map.previewFile().file();
             if (!mapfile.exists()) {
               mapfile.createNewFile();
+              byte[] b = map.texture.getTextureData().consumePixmap().getPixels().array();
+              Files.write(Paths.get(mapfile.toURI()), b);
             }
             var upload = cloudinary.uploader().upload(map.previewFile().file(), ObjectUtils.emptyMap());
             Object url = upload.get("url");
