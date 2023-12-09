@@ -1,5 +1,9 @@
 package utilsplugin.discord;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 
@@ -16,10 +20,6 @@ import discord4j.rest.util.Color;
 import mindustry.Vars;
 import mindustry.gen.Call;
 import mindustry.maps.Map;
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import utilsplugin.utils.config;
 
 public class bot {
@@ -51,7 +51,7 @@ public class bot {
             Files.write(Paths.get(mapfile.toURI()), b);
             var upload = cloudinary.uploader().upload(map.previewFile().file(), ObjectUtils.emptyMap());
             Object url = upload.get("url");
-            Log.info(url);
+            Log.info(url.toString());
             sendEmbedImage("Map: " + map.plainName() + "\nAuthor: " + map.author(), Color.DARK_GRAY, url.toString());
           } catch (Exception er) {
             Log.err(er);
