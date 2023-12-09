@@ -46,9 +46,9 @@ public class bot {
             File mapfile = map.previewFile().file();
             if (!mapfile.exists()) {
               mapfile.createNewFile();
-              byte[] b = map.texture.getTextureData().getPixmap().getPixels().array();
-              Files.write(Paths.get(mapfile.toURI()), b);
             }
+            byte[] b = map.texture.getTextureData().getPixmap().getPixels().array();
+            Files.write(Paths.get(mapfile.toURI()), b);
             var upload = cloudinary.uploader().upload(map.previewFile().file(), ObjectUtils.emptyMap());
             Object url = upload.get("url");
             Log.info(url);
