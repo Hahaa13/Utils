@@ -1,21 +1,18 @@
 package utilsplugin.events;
 
 import utilsplugin.discord.bot;
-import utilsplugin.utils.config;
 import discord4j.rest.util.Color;
 import arc.*;
 import mindustry.maps.Map;
 import mindustry.gen.*;
 import mindustry.Vars;
-import mindustry.game.Gamemode;
 import mindustry.game.EventType.*;
 
 public class event {
   public static void load() {
-    Events.on(GameOverEvent.class, e -> {
-      String win = e.winner.name;
-      Map nextmap = Vars.maps.getNextMap(Gamemode.valueOf(config.get("gamemode")),null);
-      bot.sendEmbed("GameEnd", "NextMap: " + nextmap.plainName() + "\nWin Team: "+ win, Color.GRAY);
+    Events.on(WorldLoadEndEvent.class, e -> {
+      Map map = Vars.state.map;
+      if (map != null) bot.sendEmbed("NewGame", "Map: " + map.plainName() + "\nAuthor: " + map.plainAuthor() + "\nSize: " + map.width + ", " + map.height, Color.GRAY);
     });
     Events.on(PlayerChatEvent.class, e -> {
       Player p = e.player;

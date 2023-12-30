@@ -19,7 +19,6 @@ public class config {
         Log.info("Create File UtilsPlugin/config.json");
         json.put("discordbot_token", "token");
         json.put("discordbot_channelid", "id");
-        json.put("gamemode", "survival");
         try {
           FileWriter fw = new FileWriter(file);
           fw.write(json.toString(4));
