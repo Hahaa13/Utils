@@ -32,7 +32,7 @@ public class bot {
         String content = message.getContent();
         if (content.startsWith("!maps")){
           Map map = Vars.state.map;
-          sendEmbed(map.plainName(),"Size: " + map.width +", " + map.height + "\nAuthor:" + map.plainAuthor() + "\nDescription: " + map.description(), Color.DISCORD_BLACK);
+          sendEmbed(map.plainName(),"Size: " + map.width +", " + map.height + "\nAuthor: " + map.plainAuthor() + "\nDescription: " + map.description(), Color.DISCORD_BLACK);
         }else{
           String user = member.getDisplayName();
           Call.sendMessage("[blue][][white] " + user + ": " + content);
