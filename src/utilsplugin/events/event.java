@@ -10,7 +10,7 @@ import mindustry.game.EventType.*;
 
 public class event {
   public static void load() {
-    Events.on(WorldLoadEndEvent.class, e -> {
+    Events.on(PlayEvent.class, e -> {
       Map map = Vars.state.map;
       if (map != null) bot.sendEmbed("NewGame", "Map: " + map.plainName() + "\nAuthor: " + map.plainAuthor() + "\nSize: " + map.width + ", " + map.height, Color.GRAY);
     });
