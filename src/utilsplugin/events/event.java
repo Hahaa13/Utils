@@ -17,6 +17,7 @@ public class event {
     
     Events.on(PlayerJoin.class, e -> {
       Player p = e.player;
+      Call.openURI(p.con, "https://discord.com/invite/e27WJNeaR3");
       if (p.admin) {
         p.name = "[red][][white]" + p.name;
       }

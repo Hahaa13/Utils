@@ -1,13 +1,5 @@
 package utilsplugin.discord;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
-
-import arc.util.Log;
 import discord4j.common.util.Snowflake;
 import discord4j.core.DiscordClient;
 import discord4j.core.GatewayDiscordClient;
@@ -40,22 +32,7 @@ public class bot {
         String content = message.getContent();
         if (content.startsWith("!maps")){
           Map map = Vars.state.map;
-          try {
-            Cloudinary cloudinary = new Cloudinary(config.get("CLOUDINARY_URL"));
-            cloudinary.config.secure = true;
-            File mapfile = map.previewFile().file();
-            if (!mapfile.exists()) {
-              mapfile.createNewFile();
-            }
-            byte[] b = map.texture.getTextureData().getPixmap().getPixels().array();
-            Files.write(Paths.get(mapfile.toURI()), b);
-            var upload = cloudinary.uploader().upload(map.previewFile().file(), ObjectUtils.emptyMap());
-            Object url = upload.get("url");
-            Log.info(url.toString());
-            sendEmbedImage("Map: " + map.plainName() + "\nAuthor: " + map.author(), Color.DARK_GRAY, url.toString());
-          } catch (Exception er) {
-            Log.err(er);
-          }
+          sendEmbed(map.plainName(),"Size: " + map.width +", " + map.height + "\nAuthor:" + map.plainAuthor() + "\nDescription: " + map.description(), Color.DISCORD_BLACK);
         }else{
           String user = member.getDisplayName();
           Call.sendMessage("[blue][][white] " + user + ": " + content);
@@ -73,11 +50,11 @@ public class bot {
       .build();
     channel.createMessage(embed).subscribe();
   }
-  public static void sendEmbedImage(String content, Color color, String Url) {
+  public static void sendEmbed(String title, String content, Color color) {
     EmbedCreateSpec embed = EmbedCreateSpec.builder()
       .color(color)
-      .title(content)
-      .image(Url)
+      .title(title)
+      .description(content)
       .build();
     channel.createMessage(embed).subscribe();
   }
