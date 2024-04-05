@@ -15,10 +15,12 @@ public class event {
       if (map != null) bot.sendEmbed("NewGame", "Map: " + map.plainName() + "\nAuthor: " + map.plainAuthor() + "\nSize: " + map.width + ", " + map.height, Color.GRAY);
     });
     Events.on(PlayerChatEvent.class, e -> {
-      Player p = e.player;
       String content = e.message;
-      String message = "```" + p.name + ": " + content + "```";
-      bot.send(message);
+      if (!content.startsWith("/")) {
+        Player p = e.player;
+        String message = "```" + p.name + ": " + content + "```";
+        bot.send(message);
+      }
     });
     
     Events.on(PlayerJoin.class, e -> {
